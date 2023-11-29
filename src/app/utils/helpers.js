@@ -2,7 +2,7 @@ import Logger from "./logger/logger";
 /**
  * Fetch JSON from provided endpoint
  * @param {URL} url
- * @returns {Promise<JSON>}
+ * @returns {Promise<Object>}
  */
 export async function fetchJSONFromURL(url, options = {}) {
   const response = await fetch(url, options);

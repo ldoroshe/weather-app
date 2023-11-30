@@ -53,7 +53,7 @@ export default class DotChart extends ElementsList {
     if (point && typeof point.temperature !== "undefined") {
       const temperature = Number(point.temperature);
       pointHolder.style.height = this.calcPointHolderHeight(temperature);
-      pointHolder.dataset.title = point.temperature;
+      pointHolder.dataset.title = point.temperature + "\n" + point.date;
     } else {
       pointHolder.classList.add("empty");
     }

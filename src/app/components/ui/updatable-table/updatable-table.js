@@ -28,7 +28,7 @@ export class UpdatableTable extends ElementsList {
   }
 
   /**
-   * Creates structure of DOM elements for table
+   * Creates structure of DOM elements for table.
    * @returns {HTMLTableElement}
    */
   createTableElement() {
@@ -42,7 +42,7 @@ export class UpdatableTable extends ElementsList {
 
   /**
    * Creates structure of DOM elements for table row,
-   * populated with provided data
+   * populated with provided data.
    * @param {import("../../types").WeatherAppDataPoint} rowData
    * @param {boolean} isHeader
    * @returns {HTMLTableRowElement}
@@ -62,9 +62,9 @@ export class UpdatableTable extends ElementsList {
   }
 
   /**
-   * On removal of item remove first row from the table
-   * (as on exceeding of limit we remove first item from
-   * internal store)
+   * On removal of item remove first (or last depending on
+   * direction of table) row from the table (as on exceeding
+   * of limit we remove first item from internal store).
    */
   removedItemAction() {
     const toRemove = this.recentOnTop

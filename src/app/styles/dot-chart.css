@@ -1,0 +1,32 @@
+#dot-chart {
+    width: 100%;
+    padding: 0 1%;
+    height: 400px;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    align-items: end;
+}
+
+#dot-chart > div {
+    width: 0.8%;
+    margin: 0 0.1%;
+}
+
+#dot-chart > div:not(.empty)::before {
+    content: "\00b7";
+    line-height: 0;
+    font-size: 48px;
+    color: blue;
+}
+
+#dot-chart > div:not(.empty):hover:after {
+    position: relative;
+    content:attr(data-title);
+    left:-1rem;
+    top:-1.5rem;
+    width:2rem;
+    height:1.25rem;
+    color:black;
+}

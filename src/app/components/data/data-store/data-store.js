@@ -11,7 +11,7 @@ export default class DataStore {
      * @type any[]
      */
     this.items = [];
-    this.add = (item) => this._add(item);
+    this.add = (/** @type {any} */ item) => this._add(item);
   }
   /**
    * Adding element to data queue
@@ -25,37 +25,10 @@ export default class DataStore {
   }
 
   /**
-   * Trims data queue to last X elements
-   * @returns {any[]}
-   */
-  trim() {
-    while (this.items.length > this.limit) {
-      this.items.shift();
-    }
-    return this.items;
-  }
-
-  /**
    * Get shallow copy of stored items
    * @returns {any[]}
    */
   getItems() {
     return this.items.slice();
-  }
-
-  /**
-   * Get first item
-   * @returns {any}
-   */
-  getFirstItem() {
-    return this.items[0];
-  }
-
-  /**
-   * Get last item
-   * @returns {any}
-   */
-  getLastItem() {
-    return this.items[this.items.length - 1];
   }
 }

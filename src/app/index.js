@@ -4,7 +4,7 @@ import { weatherDataProvider } from "./components/api/weather-service/providers/
 import DataStore from "./components/data/data-store/data-store";
 import CurrentTemperature from "./components/ui/current-temperature/current-temperature";
 import DotChart from "./components/ui/dot-chart/dot-chart";
-import { UpdatableTable } from "./components/ui/updatable-table/updatable-table";
+import WeatherTable from "./components/ui/weather-table/weather-table";
 import { DATAPOINTS_AMOUNT, WEATHER_DATA_REQUEST_TIMEOUT } from "./config";
 import Logger from "./utils/logger/logger";
 
@@ -26,7 +26,7 @@ const chart = new DotChart(document.body, DATAPOINTS_AMOUNT);
 /**
  * Table component to display weather data in a tabular format.
  */
-const table = new UpdatableTable(document.body, DATAPOINTS_AMOUNT, {
+const table = new WeatherTable(document.body, DATAPOINTS_AMOUNT, {
   temperature: "Temperature",
   date: "Date & Time",
 });

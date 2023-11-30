@@ -1,24 +1,20 @@
-import ElementsList from "../../data/elements-list/elements-list";
 import "../../../styles/dot-chart.css";
+import WeatherUIComponent from "../weather-ui-component/weather-ui-component";
 
 /**
  * Extends the ElementsList class to chart component
  * Provides additional functionalities for creating and updating chart
  */
-export default class DotChart extends ElementsList {
+export default class DotChart extends WeatherUIComponent {
   /**
    * Constructs the DotChart with a host element and limit of dots.
    * @param {HTMLElement} parentElement
    * @param {number} limit
    */
   constructor(parentElement, limit) {
-    super(limit);
+    super(parentElement, limit);
 
     this.initialValue = null;
-
-    this.createChartBox();
-
-    parentElement.append(this.chart);
   }
 
   /**
@@ -35,12 +31,12 @@ export default class DotChart extends ElementsList {
 
   /**
    * Creates container for chart.
-   * @returns {HTMLDivElement}
+   * @returns {HTMLElement[]}
    */
-  createChartBox() {
-    this.chart = document.createElement("div");
-    this.chart.id = "dot-chart";
-    return this.chart;
+  createElement() {
+    const chart = document.createElement("div");
+    chart.id = "dot-chart";
+    return [chart];
   }
 
   /**
@@ -63,16 +59,16 @@ export default class DotChart extends ElementsList {
   /**
    * Removing chart element.
    */
-  removedItemAction() {
-    this.chart.removeChild(this.chart.children[0]);
+  remove() {
+    this.wrapperElement.removeChild(this.wrapperElement.firstChild);
   }
 
   /**
    * Creating new chart element and adding it to the chart box.
    * @param {import("../../types").WeatherAppDataPoint} item
    */
-  addedItemAction(item) {
+  add(item) {
     const point = this.createPoint(item);
-    this.chart.appendChild(point);
+    this.wrapperElement.appendChild(point);
   }
 }

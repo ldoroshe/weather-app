@@ -4,8 +4,9 @@
   "description": "Technical assessment for position of Senior Frontend Engineer at CyberSmart",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "start": "webpack serve --open --mode development"  },
   "keywords": [
     "cybersmart"
   ],

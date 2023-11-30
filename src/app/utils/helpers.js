@@ -5,11 +5,14 @@ import Logger from "./logger/logger";
  * @returns {Promise<Object>}
  */
 export async function fetchJSONFromURL(url, options = {}) {
-  const response = await fetch(url, options);
   try {
+    const response = await fetch(url, options);
     return await response.json();
   } catch (error) {
-    Logger.error("Response is not in JSON format", error);
+    Logger.error(
+      "Either network request failed or its response unexpected",
+      error
+    );
   }
 }
 
